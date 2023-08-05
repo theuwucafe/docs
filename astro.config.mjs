@@ -1,30 +1,34 @@
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: "The UwU Cafe",
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				discord: "https://discord.theuwucafe.net",
+				github: "https://github.com/TheUwUCafe/docs",
 			},
 			sidebar: [
 				{
-					label: 'Guides',
+					label: "Guides",
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
+						{
+							label: "Installing Java",
+							link: "/guides/install-java/",
+						},
+						{
+							label: "Installing Prism Launcher",
+							link: "/guides/install-prism/",
+						},
 					],
 				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
 			],
+			customCss: ["./src/styles.css"],
 		}),
 	],
 
 	// Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
-	image: { service: { entrypoint: 'astro/assets/services/sharp' } },
+	image: { service: { entrypoint: "astro/assets/services/sharp" } },
 });
